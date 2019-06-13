@@ -1,0 +1,81 @@
+[credential]
+	helper = cache --timeout=1296000
+
+[diff]
+    # Makes the filenames in git diff easier to understand (e.g: w/ for working directory)
+    mnemonicprefix = true
+	colormoved = default
+    color=auto
+
+[url "https://github.com/"]
+    insteadOf = gh:
+
+[alias]
+	s = status
+
+    aa = add --all
+
+    kurwa = status
+    howdoi = help
+
+    # Show all the modifications from develop to the current tip, with patches and in chronological order
+    forgot = "!sh -c 'git review ${1:-develop}..HEAD'"
+
+    # Review a range of commits in chronological order
+    # E.g: git review abcd..1234ef
+    review = log -p --reverse
+
+    # Creates a quick temporary commit while you are working
+    lol = commit -a -m lol
+
+    root = rev-parse --show-toplevel
+    hash = rev-parse --short HEAD
+
+    pushup = push --set-upstream
+
+    fetchall = fetch --all --prune
+
+	dm = diff --minimal
+
+    uncommit = reset HEAD~1
+    unstage = reset HEAD
+    brasa = checkout --
+
+    amend = commit --amend
+
+    # Useful to see exactly the diff that gets applied by the merge
+    premerge = merge --no-commit --no-ff
+
+    # StackOverflow's black magic. It finds the merge commit that brought the given hash into the current branch.
+    # E.g:
+    #   git checkout develop
+    #   git show-merge 12345abcdef
+    #
+    find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
+    show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
+
+    l = log --oneline
+    overview = log --all --oneline --decorate --graph
+    topology = log --all --oneline --decorate --graph --simplify-by-decoration
+
+    latest-tag = describe --abbrev=0
+
+    # Interactive rebase of the current branch onto the merge base with another branch.
+    # This lets you edit the history of your branch but without changing the merge base
+    # (after editing the history your branch still branches off from the same point).
+    soft-rebase = "!sh -c 'git rebase -i $(git merge-base HEAD ${1:-develop})'"
+
+    # Lists all the authors of this repo
+    authors = "!sh -c 'git log --format=\"%an\" | sort | uniq'"
+
+    # Gets just the date of a commit
+    date = show --no-patch --no-notes --pretty='%cd' --date=iso
+    message = log --format=%B -n 1
+
+[rebase]
+	autosquash = true
+
+[help]
+    # Enables autocorrect of misspelled commands and gives you two seconds to abort
+	autocorrect = 20
+
