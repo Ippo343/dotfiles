@@ -19,6 +19,7 @@ set nowrapscan
 set background=dark
 set t_Co=4096
 set cursorline
+set incsearch
 
 " Highlight the search term and remove the highlight when you press enter
 set hlsearch
