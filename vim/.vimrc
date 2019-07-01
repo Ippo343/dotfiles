@@ -53,6 +53,7 @@ nmap <A-down> <C-w>-
 
 " Quickly fix the formatting of python files
 command Autopep8 !autopep8 -i %
+command Dos2unix !dos2unix %
 
 " With the strip whitespace plugin, always prompt to delete trailing
 " whitespace
