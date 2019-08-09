@@ -19,8 +19,9 @@ function cdl {
     cd $1 && clear && ll
 }
 
+alias s='(git status &>/dev/null && git status) || (svn status &> /dev/null && svn status)'
+
 # Git aliases
-alias s='git status'
 alias d='git diff'
 alias ds='git diff --staged'
 alias good='git bisect good'
