@@ -8,12 +8,16 @@ alias la='ls -AF'
 alias lla='ls -lhAF'
 alias lll='ls -lhAF --color=always | less -RF'
 alias ltree='tree -C | less -RF'
+
 alias pspy='ps aux | grep py'
 
 
 # I cannot into typing
 alias cd..='cd ..'
 
+function cdl {
+    cd $1 && clear && ll
+}
 
 # Git aliases
 alias s='git status'
