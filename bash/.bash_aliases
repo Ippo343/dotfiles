@@ -52,3 +52,5 @@ fi
 
 alias unset_proxies='export http_proxy=""; export https_proxy=""'
 
+alias rpmls='rpm -qlp'
+
