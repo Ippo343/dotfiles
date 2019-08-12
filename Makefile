@@ -16,6 +16,9 @@ bash:
 .PHONY: vim
 vim:
 	cp vim/.vimrc $(HOME)
+
+.PHONY: vim.plugins
+vim.plugins:
 	# Install pathogen
 	mkdir -p $(HOME)/.vim/autoload $(HOME)/.vim/bundle
 	curl -LSso $(HOME)/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
