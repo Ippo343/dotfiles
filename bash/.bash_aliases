@@ -31,7 +31,7 @@ alias cdg='cd $(git rev-parse --show-toplevel)'
 alias gl='git log --stat'
 alias pruneall='git remote | xargs git remote prune'
 alias fetchall='git fetch --all --prune'
-alias fixconflicts='vim +0 +/HEAD $(git diff --name-only | sort | uniq)'
+alias fixconflicts='vim +0 "+/<<<" $(git diff --name-only --relative | sort | uniq)'
 
 function lines_by_author {
     git ls-files -z "$@" | xargs -0 -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr ;
