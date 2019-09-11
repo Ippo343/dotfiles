@@ -72,8 +72,13 @@
     date = show --no-patch --no-notes --pretty='%cd' --date=iso
     message = log --format=%B -n 1
 
+    is-repo = rev-parse --is-inside-work-tree
+
 [rebase]
 	autosquash = true
+
+[rerere]
+	enabled = true
 
 [help]
     # Enables autocorrect of misspelled commands and gives you two seconds to abort
