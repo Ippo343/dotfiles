@@ -61,3 +61,6 @@ command Dos2unix !dos2unix %
 " whitespace
 let g:strip_whitespace_on_save = 1
 
+command Shebang :normal i#/bin/bash<CR><CR><ESC>
+command Pybang :normal i#/usr/bin/env python<CR><CR><ESC>
+
