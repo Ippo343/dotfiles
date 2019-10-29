@@ -26,6 +26,7 @@ vim.plugins:
 	git clone https://github.com/scrooloose/nerdtree.git		$(HOME)/.vim/bundle/nerdtree
 	git clone https://github.com/ntpeters/vim-better-whitespace.git $(HOME)/.vim/bundle/vim-better-whitespace
 	git clone https://github.com/tpope/vim-fugitive.git 		$(HOME)/.vim/bundle/vim-fugitive
+	git clone https://github.com/AndrewRadev/linediff.vim.git 	$(HOME)/.vim/bundle/linediff
 	vim -u NONE -c "helptags vim-fugitive/doc" -c q
 	git clone https://github.com/plasticboy/vim-markdown.git	$(HOME)/.vim/bundle/vim-markdown
 	mkdir -p $(HOME)/.vim/pack/tpope/start
